@@ -401,9 +401,9 @@ app.get('/user/portals/load/:id', async (req, res) => {
   }
 });
 
-app.post('/user/record/load', async (req, res) => {
+app.get('/user/record/load', async (req, res) => {
   try {
-    const response = await axios.post(req.body.url, { "route": "userRecordFieldsLoad", "userId": req.body.userId, "userToken": req.body.userToken, "id": req.body.id, "type": req.body.type, "template": req.body.template, "parType": req.body.parType }, {
+    const response = await axios.post(req.query.url, { "route": "userRecordFieldsLoad", "userId": req.query.userId, "userToken": req.query.userToken, "id": req.query.id, "type": req.query.type, "template": req.query.template, "parType": req.query.parType }, {
       headers: {
         'Content-Type': 'application/json',
         'User-Agent': 'Mozilla/5.0'
@@ -416,9 +416,9 @@ app.post('/user/record/load', async (req, res) => {
   }
 });
 
-app.post('/user/record/itemload', async (req, res) => {
+app.get('/user/record/itemload', async (req, res) => {
   try {
-    const response = await axios.post(req.body.url, { "route": "getItemInfo", "recordType": req.body.type, "value": req.body.value, "item": req.body.item }, {
+    const response = await axios.post(req.query.url, { "route": "getItemInfo", "recordType": req.query.type, "value": req.query.value, "item": req.query.item }, {
       headers: {
         'Content-Type': 'application/json',
         'User-Agent': 'Mozilla/5.0'
@@ -431,9 +431,9 @@ app.post('/user/record/itemload', async (req, res) => {
   }
 });
 
-app.post('/user/record/create', async (req, res) => {
+app.get('/user/record/create', async (req, res) => {
   try {
-    const response = await axios.post(req.body.url, { "route": "userRecordFieldsLoad", "userId": req.body.userId, "userToken": req.body.userToken, "type": req.body.type, "template": req.body.template, "parType": req.body.parType, "entityAvailable": req.body.entityAvailable, "entityId": req.body.entityId }, {
+    const response = await axios.post(req.query.url, { "route": "userRecordFieldsLoad", "userId": req.query.userId, "userToken": req.query.userToken, "type": req.query.type, "template": req.query.template, "parType": req.query.parType, "entityAvailable": req.query.entityAvailable, "entityId": req.query.entityId }, {
       headers: {
         'Content-Type': 'application/json',
         'User-Agent': 'Mozilla/5.0'
